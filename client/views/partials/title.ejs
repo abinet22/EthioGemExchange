@@ -3,8 +3,8 @@
         <div class="row align-items-center">
             <!--Desktop Logo-->
             <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
-                <a href="index.html">
-                    <img src="assets/images/logo.jpg" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                <a href="/">
+                    <img src="assets/images/logo.jpg" alt="" title="" />
                 </a>
             </div>
             <!--End Desktop Logo-->
@@ -25,21 +25,20 @@
                             <div class="megamenu style4">
                                 <ul class="grid grid--uniform mmWrapper">
                                    
-                                      <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Dealer List</a>
+                                      <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Dealer Shop List</a>
                                         <ul class="subLinks">
-                                            <li class="lvl-2"><a href="shop-left-sidebar.html" class="site-nav lvl-2">Product Countdown <span class="lbl nm_label3">Hot</span></a></li>
-                                            <li class="lvl-2"><a href="shop-right-sidebar.html" class="site-nav lvl-2">Infinite Scrolling</a></li>
-                                            <li class="lvl-2"><a href="shop-grid-3.html" class="site-nav lvl-2">Pagination - Classic</a></li>
-                                            <li class="lvl-2"><a href="shop-grid-6.html" class="site-nav lvl-2">Pagination - Load More</a></li>
-                                            <li class="lvl-2"><a href="product-labels.html" class="site-nav lvl-2">Dynamic Product Labels</a></li>
-                                            <li class="lvl-2"><a href="product-swatches-style.html" class="site-nav lvl-2">Product Swatches <span class="lbl nm_label2">Sale</span></a></li>
-                                            <li class="lvl-2"><a href="product-hover-info.html" class="site-nav lvl-2">Product Hover Info</a></li>
-                                            <li class="lvl-2"><a href="shop-grid-3.html" class="site-nav lvl-2">Product Reviews</a></li>
-                                            <li class="lvl-2"><a href="shop-left-sidebar.html" class="site-nav lvl-2">Discount Label <span class="lbl nm_label1">New</span></a></li>
+                                            <% if(dealerinfo.length >0 ){ %>
+                                               
+                                               <% dealerinfo.forEach(function(row){ %>
+                                                
+                                            <li class="lvl-2"><a href="/product/shopproductlist/<%= row.compname %>/<%= row.compid %>" class="site-nav lvl-2"><span class="btn-warining " style="text-transform: uppercase;"><%= row.compname %></span></a></li>
+                                            <% }) %>
+
+                                            <%  }else{}%>
                                         </ul>
                                       </li>
                                     <li class="grid__item lvl-1 col-md-6 col-lg-6">
-                                        <a href="#"><img src="assets/images/megamenu-bg1.jpg" alt="" title="" /></a>
+                                        <a href="#"><img src="/" alt="" title="" /></a>
                                     </li>
                                 </ul>
                               </div>
@@ -49,47 +48,39 @@
                             <ul class="grid mmWrapper">
                                 <li class="grid__item one-whole">
                                     <ul class="grid">
-                                        
-                                        <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">OPAL Product </a>
+                                        <% if(gemcat.length >0 ){ %>
+                                               
+                                            <% gemcat.forEach(function(row){ %>
+                                                <% var gemcatid = row.catid %>
+                                        <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1"><%= row.catname %> </a>
                                                 <ul class="subLinks">
-                                                  <li class="lvl-2"><a href="short-description.html" class="site-nav lvl-2">Short Description</a></li>
-                                                  <li class="lvl-2"><a href="product-countdown.html" class="site-nav lvl-2">Product Countdown</a></li>
-                                                  <li class="lvl-2"><a href="product-video.html" class="site-nav lvl-2">Product Video</a></li>
-                                                  <li class="lvl-2"><a href="product-quantity-message.html" class="site-nav lvl-2">Product Quantity Message</a></li>
-                                                  <li class="lvl-2"><a href="product-visitor-sold-count.html" class="site-nav lvl-2">Product Visitor/Sold Count <span class="lbl nm_label3">Hot</span></a></li>
-                                                  <li class="lvl-2"><a href="product-zoom-lightbox.html" class="site-nav lvl-2">Product Zoom/Lightbox <span class="lbl nm_label1">New</span></a></li>
+                                                    <% if(gemsubca.length >0 ){ %>
+                                               
+                                                        <% gemsubca.forEach(function(row){ %>
+                                                            <% var subcatid = row.catid %>
+                                                             <%if(gemcatid == subcatid) { %>
+                                                                <li class="lvl-2"><a href="/product/productlistbycategory/<%= row.subcatname %>/<%= row.subcatid %>" class="site-nav lvl-2"><%= row.subcatname %></a></li>
+                                                 
+                                                             <%} %>
+                                                   <% }) %>
+
+                                                  <%  }else{}%>
                                                 </ul>
                                               </li>
-                                            <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">RUBY Product </a>
-                                                <ul class="subLinks">
-                                                  <li class="lvl-2"><a href="product-with-variant-image.html" class="site-nav lvl-2">Product with Variant Image</a></li>
-                                                  <li class="lvl-2"><a href="product-with-color-swatch.html" class="site-nav lvl-2">Product with Color Swatch</a></li>
-                                                  <li class="lvl-2"><a href="product-with-image-swatch.html" class="site-nav lvl-2">Product with Image Swatch</a></li>
-                                                  <li class="lvl-2"><a href="product-with-dropdown.html" class="site-nav lvl-2">Product with Dropdown</a></li>
-                                                  <li class="lvl-2"><a href="product-with-rounded-square.html" class="site-nav lvl-2">Product with Rounded Square</a></li>
-                                                  <li class="lvl-2"><a href="swatches-style.html" class="site-nav lvl-2">Product Swatches All Style</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">EMERALD Product </a>
-                                                <ul class="subLinks">
-                                                  <li class="lvl-2"><a href="product-accordion.html" class="site-nav lvl-2">Product Accordion</a></li>
-                                                  <li class="lvl-2"><a href="product-pre-orders.html" class="site-nav lvl-2">Product Pre-orders <span class="lbl nm_label1">New</span></a></li>
-                                                  <li class="lvl-2"><a href="product-labels-detail.html" class="site-nav lvl-2">Product Labels</a></li>
-                                                  <li class="lvl-2"><a href="product-discount.html" class="site-nav lvl-2">Product Discount In %</a></li>
-                                                  <li class="lvl-2"><a href="product-shipping-message.html" class="site-nav lvl-2">Product Shipping Message</a></li>
-                                                  <li class="lvl-2"><a href="size-guide.html" class="site-nav lvl-2">Size Guide <span class="lbl nm_label1">New</span></a></li>
-                                                </ul>
-                                            </li>
+                                              <% }) %>
+
+                                              <%  }else{}%>
+                                            
                                     </ul>
                                 </li>
                                     </ul>
                           </div>
                     </li>
                   
-                    <li class="lvl1 parent dropdown"><a href="/blog">Blog <i class="anm anm-angle-down-l"></i></a>
+                    <!-- <li class="lvl1 parent dropdown"><a href="/blog">Blog <i class="anm anm-angle-down-l"></i></a>
                    
-                    </li>
-                    <li class="lvl1"><a href="#"><b>Buy Now!</b> <i class="anm anm-angle-down-l"></i></a></li>
+                    </li> -->
+                    <li class="lvl1"><a href="/"><b>Buy Now!</b> <i class="anm anm-angle-down-l"></i></a></li>
                   </ul>
                 </nav>
                 <!--End Desktop Menu-->

@@ -92,6 +92,11 @@ router.use(function(req, res) {
 
 app.use('/', require('./routes/index.js'));
 app.use('/blog', require('./routes/blog.js'));
+app.use('/category', require('./routes/category.js'));
+app.use('/dealer', require('./routes/dealer.js'));
+app.use('/product', require('./routes/product.js'));
+
+
 
 
 

@@ -20,5 +20,7 @@ db.users = require("./User.js")(sequelize, Sequelize);
 db.dealers = require("./Dealer.js")(sequelize, Sequelize);
 db.gemsubcategories = require("./GemSubCategory.js")(sequelize, Sequelize);
 db.gemcategories = require("./GemCategory.js")(sequelize, Sequelize);
+db.dealercompanyinfos = require("./DealerCompanyInfo.js")(sequelize, Sequelize);
+db.products = require("./Product.js")(sequelize, Sequelize);
 
 module.exports = db;

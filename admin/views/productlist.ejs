@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+  
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+ 
+    * {
+      box-sizing: border-box;
+    }
+    
+    .zoom {
+      padding: 50px;
+    
+      transition: transform .2s;
+     
+      margin: 0 auto;
+    }
+    
+    .zoom:hover {
+      -ms-transform: scale(5.5); /* IE 9 */
+      -webkit-transform: scale(5.5); /* Safari 3-8 */
+      transform: scale(5.5); 
+    }
+    
+      </style>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <%- include('./partials/sidebar') %>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <%- include('./partials/horbar') %>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+             
+                <div class="row">
+                  <div class="col-md-6 ml-auto mr-auto text-center">
+                    <h4 class="card-title">
+                      All Product List
+                   
+                    </h4>
+                  </div>
+                </div>
+                
+            
+               
+                    <div class="row">
+                     
+                      <div class="col-md-4 offset-md-8">
+                        <a href="/searchtoaddproductwithcategory" class="btn btn-primary btn-block" ><i class="fa fa-plus"></i> Add New Product</a>
+                      </div>
+                    </div>
+                  
+           
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+              
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table" id="listtable">
+                    <thead class=" text-primary">
+                      <th>
+                        #
+                      </th>
+                      <th>
+                        Company Name
+                      </th>
+                      <th>
+                       About Company
+                      </th>
+                      <th>
+                       Company Contact
+                       </th>
+                      <th>
+                        Shop Banner Image
+                      </th>
+                      <th>
+                        Action ToDO
+                      </th>
+                      
+                    </thead>
+                    <tbody>
+                      <% if(productlist.length >0 ){ %>
+                        <% var i =0 ; %>
+                       <% productlist.forEach(function(row){ %>
+                         <% i++ %>
+                        <tr>
+                          <td>
+                            <%= i %>
+                          </td>
+                          <td>
+                            <%= row.catname %>
+                          </td>
+                          <td>
+                            <%= row.subcatname %>
+                          </td>
+                          <td> 
+                            <span class="text-center" style="text-transform: capitalize;">
+                          
+                            <%= row.productoverview %> <br>
+                           
+                          
+                            </span>
+                         
+                          </td>
+                          <td >
+                            <% var dataids5 = 'data:image/png;base64,' + new Buffer(row.productimage5, 'binary').toString('base64') %>
+                            <% var dataids1 = 'data:image/png;base64,' + new Buffer(row.productimage1, 'binary').toString('base64') %>
+                            <% var dataids2 = 'data:image/png;base64,' + new Buffer(row.productimage2, 'binary').toString('base64') %>
+                            <% var dataids3 = 'data:image/png;base64,' + new Buffer(row.productimage3, 'binary').toString('base64') %>
+                            <% var dataids4 = 'data:image/png;base64,' + new Buffer(row.productimage4, 'binary').toString('base64') %>
+                          <div class="row col-md-12">
+                            <div class=" zoom" style=" border-width: 1px; border-color: #45b649;" >
+                              <img   class="img-responsive" src="<%= dataids1 %>" width="50px" height="50px" />
+                                   
+                                  </div> 
+                                
+                                        <!-- <div class=" zoom" style=" border-width: 1px; border-color: #45b649;" >
+                                          <img   class="img-responsive" src="<%= dataids2 %>" width="50px" height="50px" />
+                                               
+                                              </div> 
+                                              <div class=" zoom" style=" border-width: 1px; border-color: #45b649;" >
+                                                <img   class="img-responsive" src="<%= dataids3 %>" width="50px" height="50px" />
+                                                     
+                                                    </div> 
+                                                    <div class=" zoom" style=" border-width: 1px; border-color: #45b649;" >
+                                                      <img   class="img-responsive" src="<%= dataids4 %>" width="50px" height="50px" />
+                                                           
+                                                          </div> 
+                                                          <div class=" zoom" style=" border-width: 1px; border-color: #45b649;" >
+                                                            <img   class="img-responsive" src="<%= dataids5 %>" width="50px" height="50px" />
+                                                                 
+                                                                </div>  -->
+                          </div>
+                          
+                          </td>
+                          <td> 
+                            <form action="/dealer/editdealerinfo/<%= row.compid %>" method="get">
+                              <button class="btn btn-block btn-info btn-sm " type="submit"><i class="fa fa-edit"></i>Edit</button>
+                            </form>
+                            <form action="/dealer/createdealercredential/<%= row.compid %>" method="get">
+                              <button class="btn btn-block btn-primary btn-sm " type="submit"><i class="fa fa-add"></i>Create</button>
+                            </form>
+                            
+                           
+                            
+                          </td>
+                        </tr>
+                       <% }) %>
+
+                     <%  }else{}%>
+                    
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <%- include('./partials/footer') %>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <script src=" https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"></script>
+    <!-- //workingbelow -->
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
+    <script>
+$(document).ready(function (){
+var table = $('#listtable').DataTable({
+
+'columnDefs': [{
+ 'targets': 0,
+ 'searchable': false,
+ 'orderable': false,
+ 'className': 'dt-body-center',
+
+}],
+'order': [[1, 'asc']]
+});
+
+// Handle click on "Select all" control
+$('#example-select-all').on('click', function(){
+// Get all rows with search applied
+var rows = table.rows({ 'search': 'applied' }).nodes();
+// Check/uncheck checkboxes for all rows in the table
+$('input[type="checkbox"]', rows).prop('checked', this.checked);
+});
+
+// Handle click on checkbox to set state of "Select all" control
+$('#example tbody').on('change', 'input[type="checkbox"]', function(){
+// If checkbox is not checked
+if(!this.checked){
+ var el = $('#example-select-all').get(0);
+ // If "Select all" control is checked and has 'indeterminate' property
+ if(el && el.checked && ('indeterminate' in el)){
+    // Set visual state of "Select all" control
+    // as 'indeterminate'
+    el.indeterminate = true;
+ }
+}
+});
+
+// Handle form submission event
+$('#frm-example').on('submit', function(e){
+var form = this;
+
+// Iterate over all checkboxes in the table
+table.$('input[type="checkbox"]').each(function(){
+ // If checkbox doesn't exist in DOM
+ if(!$.contains(document, this)){
+    // If checkbox is checked
+    if(this.checked){
+       // Create a hidden element
+       $(form).append(
+          $('<input>')
+             .attr('type', 'hidden')
+             .attr('name', this.name)
+             .val(this.value)
+       );
+    }
+ }
+});
+});
+
+});
+    </script>
+</body>
+
+</html>

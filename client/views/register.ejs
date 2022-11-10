@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Create an Account &ndash; Belle Multipurpose Bootstrap 4 Template</title>
+<title></title>
 <meta name="description" content="description">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Favicon -->
@@ -52,7 +52,8 @@
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
                 	<div class="mb-4">
-                       <form method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
+                        <%- include('./partials/messages') %>
+                       <form method="post" action="/register" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
                           <div class="row">
 	                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
@@ -81,7 +82,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
                                     <label for="CustomerPassword">Password</label>
-                                    <input type="password" value="" name="password" placeholder="" id="CustomerPassword" class="">                        	
+                                    <input type="password"  name="password" placeholder="" id="CustomerPassword" class="">                        	
                                 </div>
                             </div>
                           </div>

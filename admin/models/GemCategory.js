@@ -6,8 +6,20 @@ module.exports = (sequelize, DataTypes) => {
         },
         catname: {
             type: DataTypes.STRING,
-        }
-        
+        },
+        catoverview:{
+          type: DataTypes.STRING,
+        },
+        bimagetype: {
+            type: DataTypes.STRING,
+          },
+          
+          bimagename: {
+            type: DataTypes.STRING,
+          },
+          bimagedata: {
+            type: DataTypes.BLOB("long"),
+          },
      
 
     });

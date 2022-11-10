@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- belle/shop-listview.html   11 Nov 2019 12:41:02 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Women &ndash; Belle Multipurpose Bootstrap 4 Template</title>
+<meta name="description" content="description">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon -->
+<link rel="shortcut icon" href="../../../assets/images/favicon.png" />
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="../../../assets/css/plugins.css">
+<!-- Bootstap CSS -->
+<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+<!-- Main Style CSS -->
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<link rel="stylesheet" href="../../../assets/css/responsive.css">
+</head>
+<body class="template-collection belle">
+<div class="pageWrapper">
+	<!--Search Form Drawer-->
+	<div class="search">
+        <div class="search__form">
+            <form class="search-bar__form" action="#">
+                <button class="go-btn search__button" type="submit"><i class="icon anm anm-search-l"></i></button>
+                <input class="search__input" type="search" name="q" value="" placeholder="Search entire store..." aria-label="Search" autocomplete="off">
+            </form>
+            <button type="button" class="search-trigger close-btn"><i class="icon anm anm-times-l"></i></button>
+        </div>
+    </div>
+    <!--End Search Form Drawer-->
+    <!--Top Header-->
+    <%- include('./partials/top') %>
+	<!--End Mobile Menu-->
+  <%- include('./partials/title') %>
+  <%- include('./partials/mobile') %>
+	<!--End Mobile Menu-->
+    
+    <!--Body Content-->
+    <div id="page-content">
+    	<!--Collection Banner-->
+    	<div class="collection-header">
+			<div class="collection-hero">
+                <% var tags = tag; %>
+                <% if(tags === "shop"){ %>
+                <% if(catinfo.length >0 ){ %>
+                                               
+                    <% catinfo.forEach(function(row){ %>
+                        <% var dataids = 'data:image/png;base64,' + new Buffer(row.simagedata, 'binary').toString('base64') %>
+                                      
+                        <div class="collection-hero__image"><img data-src="<%= dataids %>" src="<%= dataids %>" height="200px" /></div>
+                        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width"><%= row.compname %></h1></div>
+                  
+               <% }) %>
+
+              <%  }else{}} %>
+              <%  if(tags ==="category") { %>
+                <% if(catinfo.length >0 ){ %>
+                                               
+                    <% catinfo.forEach(function(row){ %>
+                        <% var dataids = 'data:image/png;base64,' + new Buffer(row.bimagedata, 'binary').toString('base64') %>
+                                      
+                        <div class="collection-hero__image"><img data-src="<%= dataids %>" src="<%= dataids %>" height="200px" /></div>
+                        <div class="collection-hero__title-wrapper"><h1 class="collection-hero__title page-width"><%= row.catname %></h1></div>
+                  
+               <% }) %>
+                <%}else{}}%>
+        		</div>
+		</div>
+        <!--End Collection Banner-->
+        
+        <div class="container">
+        	<div class="row">
+            	<!--Sidebar-->
+            	
+                <!--End Sidebar-->
+                <!--Main Content-->
+                <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
+                	<div class="category-description">
+                    	<h3>About Us</h3>
+                        <% if(catinfo.length >0 ){ %>
+                                               
+                            <% catinfo.forEach(function(row){ %>
+                                <% var dataids = 'data:image/png;base64,' + new Buffer(row.simagedata, 'binary').toString('base64') %>
+                                              
+                              <p><%= row.compabout%></p>
+                       <% })}else{} %>
+                    </div>
+                    <hr>
+                	<div class="productList">
+                    	<!--Toolbar-->
+                        <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
+                    	<div class="toolbar">
+                        	<div class="filters-toolbar-wrapper">
+                            	<div class="row">
+                                	<div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
+                                    	<a href="shop-left-sidebar.html" title="Grid View" class="change-view change-view--active">
+                                        	<img src="../../../assets/images/grid.jpg" alt="Grid" />
+                                        </a>
+                                        <a href="shop-listview.html" title="List View" class="change-view">
+                                        	<img src="../../../assets/images/list.jpg" alt="List" />
+                                        </a>
+                                    </div>
+                                    <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
+                                    	<span class="filters-toolbar__product-count">Showing: 22</span>
+                                    </div>
+                                    <div class="col-4 col-md-4 col-lg-4 text-right">
+                                    	<div class="filters-toolbar__item">
+                                      		<label for="SortBy" class="hidden">Sort</label>
+                                      		<select name="SortBy" id="SortBy" class="filters-toolbar__input filters-toolbar__input--sort">
+                                                <option value="title-ascending" selected="selected">Sort</option>
+                                                <option>Best Selling</option>
+                                                <option>Alphabetically, A-Z</option>
+                                                <option>Alphabetically, Z-A</option>
+                                                <option>Price, low to high</option>
+                                                <option>Price, high to low</option>
+                                                <option>Date, new to old</option>
+                                                <option>Date, old to new</option>
+                                      		</select>
+                                      		<input class="collection-header__default-sort" type="hidden" value="manual">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Toolbar-->
+                        <div class="list-view-items grid--view-items">
+                        	<!--ListView Item-->
+                          
+                            <!--End ListView Item-->
+                            <!--ListView Item-->
+                          
+                            <!--End ListView Item-->
+                            <!--ListView Item-->
+                          
+                            <!--End ListView Item-->
+                            <!--ListView Item-->
+                            <% if(productlist.length >0 ){ %>
+                                               
+                                <% productlist.forEach(function(row){ %>
+                            <div class="list-product list-view-item">
+                                <div class="list-view-item__image-column">
+                                    <div class="list-view-item__image-wrapper">
+                                        <% var dataids = 'data:image/png;base64,' + new Buffer(row.productimage4, 'binary').toString('base64') %>
+                        
+                                        <a href="/product/productdetail/<%= row.proid %>"><img class="list-view-item__image blur-up lazyload"  src="<%= dataids %>" alt="image" title="product"></a>
+                                        <!-- End Image -->
+                                    </div>
+                                </div>
+                                <div class="list-view-item__title-column">
+                                    <div class="h4 grid-view-item__title"><a href="product-layout-2.html"><%= row.productname %></a></div>
+                                    <!-- Product Review -->
+                                    <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i></p>
+                                    <!-- End Product Review -->
+                                    <!-- Sort Description -->
+                                    <p><%= row.productoverview %></p>
+                                    <!-- End Sort Description -->
+                                    <!-- Price -->
+                                    <p class="product-price grid-view-item__meta">
+                                        <span class="product-price__price"><span class="money">$200.00</span></span>
+                                    </p>
+                                    <!-- End Price -->
+                                    <form class="variants" action="#">
+                                        <button class="btn btn--small" type="button">Add To Cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <%  })}else{}%>
+                            <!--End ListView Item-->
+                            <!--ListView Item-->
+                         
+                            <!--End ListView Item-->
+                        </div>
+                    </div>
+                    <div class="infinitpaginOuter">
+                        <div class="infinitpagin">	
+                            <a href="#" class="btn loadMore">Load More</a>
+                        </div>
+                    </div>
+                </div>
+                <!--End Main Content-->
+            </div>
+        </div>
+        
+    </div>
+    <!--End Body Content-->
+    
+    <!--Footer-->
+   <%- include('./partials/footer') %>
+    <!--End Footer-->
+    <!--Scoll Top-->
+    <span id="site-scroll"><i class="icon anm anm-angle-up-r"></i></span>
+    <!--End Scoll Top-->
+    
+     <!-- Including Jquery -->
+     <script src="../../../assets/js/vendor/jquery-3.3.1.min.js"></script>
+     <script src="../../../assets/js/vendor/jquery.cookie.js"></script>
+     <script src="../../../assets/js/vendor/modernizr-3.6.0.min.js"></script>
+     <script src="../../../assets/js/vendor/wow.min.js"></script>
+     <!-- Including Javascript -->
+     <script src="../../../assets/js/bootstrap.min.js"></script>
+     <script src="../../../assets/js/plugins.js"></script>
+     <script src="../../../assets/js/popper.min.js"></script>
+     <script src="../../../assets/js/lazysizes.js"></script>
+     <script src="../../../assets/js/main.js"></script>
+</div>
+</body>
+
+<!-- belle/shop-listview.html   11 Nov 2019 12:41:09 GMT -->
+</html>

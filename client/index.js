@@ -92,6 +92,8 @@ router.use(function(req, res) {
 
 app.use('/', require('./routes/index.js'));
 app.use('/blog', require('./routes/blog.js'));
+app.use('/product', require('./routes/product.js'));
+
 
 
 
